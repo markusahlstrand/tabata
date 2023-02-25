@@ -16,7 +16,7 @@ function TabataTimer() {
       interval = setInterval(() => {
         setTimeLeft((prevTime) => prevTime - 1);
       }, 1000);
-    } else {
+    } else if (interval) {
       clearInterval(interval);
     }
 
@@ -43,7 +43,7 @@ function TabataTimer() {
       }
     }
 
-    return () => clearInterval(interval);
+    return () => clearInterval(interval as NodeJS.Timeout);
   }, [
     isRunning,
     isPaused,
