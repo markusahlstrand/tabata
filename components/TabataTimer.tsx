@@ -10,7 +10,7 @@ function TabataTimer() {
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    let interval = null;
+    let interval: NodeJS.Timeout | null = null;
 
     if (isRunning && !isPaused) {
       interval = setInterval(() => {
